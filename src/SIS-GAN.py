@@ -39,9 +39,9 @@ class SIS_GAN:
 
         # Load the pretrain subject predictor
         self.subject_predictor = torch.load(
-            "pretrain_subject_unseen%i.pt" % (self.test_idx),
-            map_location=torch.device("cpu"),
-        )
+            f"pretrain_subject_unseen%i.pt" % (self.test_idx),
+            map_location=device,
+        ).to(device)
 
     def _load_model(self) -> None:
         """Load the GAN model"""
